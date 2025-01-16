@@ -1,0 +1,16 @@
+fastapi==0.111.1
+uvicorn==0.30.3
+APScheduler~=3.10.1
+
+pymysql
+
+loguru~=0.6.0
+
+peewee~=3.16.0
+starlette~=0.26.1
+passlib[bcrypt]
+pydantic[dotenv]
+
+jose~=1.0.0
+python-jose[cryptography]
+redis~=5.0.1

@@ -1,0 +1,11 @@
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - cibuilder build
+  only:
+    - master
+    - test
+    - /^test_[a-zA-Z0-9-.]*$/
