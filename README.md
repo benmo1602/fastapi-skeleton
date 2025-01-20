@@ -127,7 +127,10 @@
 2. API
 
 ```bash
-uvicorn main:app --host 0.0.0.0 --port 8080
+uvicorn main:app --host 0.0.0.0 --port 8080 --reload
+
+
+#  http://0.0.0.0:8000/docs#/  swagger 文档
 ```
 
 3. 调度器
