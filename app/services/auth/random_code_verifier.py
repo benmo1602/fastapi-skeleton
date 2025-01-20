@@ -8,7 +8,7 @@ def make(key: str) -> str:
     生成验证码
     """
     code = str(random.randint(100000, 999999))
-
+    print(redis_settings.REDIS_USE) # 是否启用redis
     if redis_settings.REDIS_USE:
         redis_client = redis.Redis(connection_pool=redis_pool)
         redis_client.set(f"verification_code:{key}", code, ex=300)  # 5分钟过期

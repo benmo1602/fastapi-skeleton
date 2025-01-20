@@ -1,18 +1,16 @@
 fastapi==0.111.1
 uvicorn==0.30.3
-APScheduler
+APScheduler==3.10.4
 
-pymysql
+loguru==0.6.0
+peewee==3.17.8
+starlette==0.37.2
+jose==1.0.0
+pydantic_settings==2.7.1
+passlib==1.7.4
+pydantic==2.10.5
+python-jose==3.3.0
 
-loguru
-
-peewee
-starlette
-passlib[bcrypt]
-pydantic[dotenv]
-
-jose
-python-jose[cryptography]
-redis
-pymongo
-pydantic_settings
+pymysql==1.1.1
+redis==5.0.8
+pymongo==4.10.1

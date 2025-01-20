@@ -61,6 +61,7 @@ if redis_settings.REDIS_USE:
     redis_client = redis.Redis(connection_pool=redis_pool)
 else:
     # Use fake data when Redis is not used
+    redis_pool = None
     redis_client = None  # Add your fake data logic here
     # Example: fake_cache = {}
 
@@ -70,7 +71,9 @@ if mongo_settings.MONGO_USE:
     mongo_db = mongo_client[mongo_settings.MONGO_DB]
 else:
     # Use fake data when MongoDB is not used
+
     mongo_client = None  # Add your fake data logic here
+    mongo_db = None
     # Example: fake_mongo_data = [{'id': 1, 'name': 'Test'}]
 
 # 添加模拟数据

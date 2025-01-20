@@ -3,7 +3,7 @@ from typing import Optional
 
 
 class Settings(BaseSettings):
-    """mysql db"""
+    """MySQL database settings"""
     DB_USE: bool = False  # 是否启用MySQL
     DB_HOST: str = '127.0.0.1'
     DB_PORT: int = 3306
@@ -15,7 +15,7 @@ class Settings(BaseSettings):
 
 
 class RedisSettings(BaseSettings):
-    """redis"""
+    """Redis settings"""
     REDIS_USE: bool = False  # 是否启用Redis
     REDIS_HOST: str = 'localhost'
     REDIS_PORT: int = 6379
@@ -26,7 +26,7 @@ class RedisSettings(BaseSettings):
 
 
 class MongoSettings(BaseSettings):
-    """mongodb"""
+    """MongoDB settings"""
     MONGO_USE: bool = False  # 是否启用MongoDB
     MONGO_URI: str = 'mongodb://localhost:27017'
     MONGO_DB: str = 'fastapi'
