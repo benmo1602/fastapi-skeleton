@@ -9,12 +9,12 @@ from app.providers import route_provider
 from bootstrap.init_app import init_app
 
 def create_app() -> FastAPI:
-    app = FastAPI()
+    # app = FastAPI()
     # 初始化app
-    # version = "0.5.0"     # 系统版本号
-    # title, description = '在问', 'service for zaiwen'
-    # DEBUG = True
-    # app = init_app(version=version, title=title, description=description, debug=DEBUG)
+    version = "0.5.0"     # 系统版本号
+    title, description = '在问', 'service for zaiwen'
+    DEBUG = True
+    app = init_app(version=version, title=title, description=description, debug=DEBUG)
 
     register(app, logging_provider)
     register(app, app_provider)

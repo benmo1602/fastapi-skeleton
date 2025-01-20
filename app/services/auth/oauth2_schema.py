@@ -7,7 +7,7 @@ class OAuth2PasswordRequest(BaseModel):
     """
     参照 fastapi.security.OAuth2PasswordRequestForm，把请求体从form改为json格式
     """
-    grant_type: str = Field(default=None, regex="password")
+    grant_type: str = Field(default=None, pattern="^password$")
     username: str
     password: str
     scope: str = ''
@@ -16,7 +16,7 @@ class OAuth2PasswordRequest(BaseModel):
 
 
 class OAuth2CellphoneRequest(BaseModel):
-    grant_type: str = Field(default=None, regex="cellphone")
+    grant_type: str = Field(default=None, pattern="^cellphone$")
     cellphone: str
     verification_code: str
     scope: str = ''

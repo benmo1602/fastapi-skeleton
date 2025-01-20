@@ -1,14 +1,22 @@
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
+import os
 
 
 class Settings(BaseSettings):
-    JWT_TTL: int = 60 * 24 * 8
-    JWT_SECRET_KEY: str = ""
-    JWT_ALGORITHM: str = 'HS256'
+    NAME: str = "fastapi"
+    DEBUG: bool = False
+    ENV: str = "production"
+    BASE_PATH: str = os.path.dirname(os.path.dirname((os.path.abspath(__file__))))
+    SERVER_HOST: str = "0.0.0.0"
+    SERVER_PORT: int = 8000
+    URL: str = "http://localhost"
+    TIME_ZONE: str = "RPC"
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = 'utf-8'
+    model_config = SettingsConfigDict(
+        env_prefix='APP_',
+        env_file=".env",
+        extra='allow'
+    )
 
 
 settings = Settings()

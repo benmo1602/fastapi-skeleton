@@ -138,6 +138,25 @@ python scheduler.py
 
 关于部署部分，参见我的另一篇文章 [fastapi部署](https://www.kxler.com/2022/10/21/fastapi-deployment-venv-gunicorn-service/)
 
+
+## 部署
+
+docker build -t name .
+docker run -d -p 8000:8000 name
+
+-v /path/to/host/logs:/home/storage/logs  # 持久化 日志
+
+2. 如果遇到权限问题，可以在运行容器时指定用户：
+```bash
+
+docker run -d \
+  -p 8000:8000 \
+  -v /path/to/host/logs:/home/storage/logs \
+  --user $(id -u):$(id -g) \
+  fastapi-skeleton
+
+```
+
 ## 参考
 
 [FastAPI官方中文文档](https://fastapi.tiangolo.com/zh/)

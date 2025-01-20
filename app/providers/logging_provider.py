@@ -2,6 +2,7 @@ import logging
 import sys
 from loguru import logger
 
+from app.common.logger import _logger_filter
 from config.logging import settings
 
 
@@ -20,10 +21,21 @@ def register(app=None):
         logging.getLogger(name).handlers = []
         logging.getLogger(name).propagate = True
 
+
     # configure loguru
     logger.configure(handlers=[
-        {"sink": sys.stdout},
-        {"sink": path, "rotation": "00:00", "retention": retention},
+        {
+            "sink": sys.stdout,
+            "format": "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | {process.name} | {thread.name} |{trace_msg}| {level: <8} | {name}:{function}:{line} - {message}",
+            "filter": _logger_filter
+        },
+        {
+            "sink": path,
+            "rotation": "00:00",
+            "retention": retention,
+            "format": "{time:YYYY-MM-DD HH:mm:ss.SSS} | {level: <8} | {trace_msg} | {name}:{function}:{line} - {message}",
+            "filter": _logger_filter
+        },
     ])
 
 

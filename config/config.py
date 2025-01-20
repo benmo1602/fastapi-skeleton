@@ -1,6 +1,6 @@
 import os
 
-from pydantic import BaseSettings, Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
@@ -16,10 +16,6 @@ class Settings(BaseSettings):
     URL: str = "http://localhost"
     TIME_ZONE: str = "RPC"
 
-    class Config:
-        env_prefix = 'APP_'
-        env_file = ".env"
-        env_file_encoding = 'utf-8'
-        extra = "allow"
+    model_config = SettingsConfigDict(env_file='.env', extra='allow')
 
 settings = Settings()

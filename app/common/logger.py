@@ -7,7 +7,6 @@
 import sys
 from uuid import uuid4
 from pathlib import Path
-import logging
 from loguru import logger
 from contextvars import ContextVar
 from config.logging import settings
@@ -119,7 +118,7 @@ log_path_error = log_path_root.joinpath(f'error.log')
 """
 https://cloud.tencent.com/developer/article/1849382
 backtrace (bool, optional) : 格式化的异常跟踪是否应该向上扩展，超出捕获点，以显示生成错误的完整堆栈跟踪。
-diagnose  (bool, optional) : 异常跟踪是否应该显示变量值以简化调试。在生产中，这应该设置为“False”，以避免泄漏敏感数据。
+diagnose  (bool, optional) : 异常跟踪是否应该显示变量值以简化调试。在生产中，这应该设置为"False"，以避免泄漏敏感数据。
 """
 params = {
     "rotation": "50 MB", "encoding": 'utf-8', "enqueue": True, "backtrace": True,  # "compression": "gzip",
@@ -141,4 +140,4 @@ logger.add(sys.stdout, level='INFO', format= "<green>{time:YYYY-MM-DD HH:mm:ss.S
 logger.add(sys.stdout, level='WARNING', format= "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | {process.name} | {thread.name} |{trace_msg}| {level: <8}  | {name}:{function}:{line} - {message}", filter=_logger_filter)
 logger.add(sys.stdout, level='ERROR', format= "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | {process.name} | {thread.name} |{trace_msg}| {level: <8}  | {name}:{function}:{line} - {message}", filter=_logger_filter)
 
-__all__ = ["logger"]
+__all__ = ["logger", "TraceID"]

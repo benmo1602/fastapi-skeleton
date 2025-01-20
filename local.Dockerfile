@@ -12,7 +12,7 @@ ENV HNSWLIB_NO_NATIVE  1
 RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 
-WORKDIR /home/webapp
+WORKDIR /home
 
 # install fastapi
 COPY  . .
@@ -27,4 +27,5 @@ ENV PYTHONIOENCODING utf-8
 
 EXPOSE 8000
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# -v /path/to/host/logs:/home/storage/logs
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--log-config", "./storage/logs/uvicorn_config.json"]
