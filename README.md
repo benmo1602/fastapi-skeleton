@@ -174,4 +174,6 @@ docker run -d \
 
 FastAPI作者的全栈项目脚手架 [full-stack-fastapi-postgresql](https://github.com/tiangolo/full-stack-fastapi-postgresql)
 
+开箱即用的FastAPI脚手架 [fastapi-skeleton](https://github.com/kaxiluo/fastapi-skeleton)
+
 代码结构组织风格参考 [Laravel框架](https://github.com/laravel/laravel)
