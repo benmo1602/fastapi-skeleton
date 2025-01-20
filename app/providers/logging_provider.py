@@ -2,7 +2,7 @@ import logging
 import sys
 from loguru import logger
 
-from app.common.logger import _logger_filter
+from app.support.logger import _logger_filter
 from config.logging import settings
 
 

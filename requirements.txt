@@ -15,3 +15,4 @@ jose
 python-jose[cryptography]
 redis
 pymongo
+pydantic_settings

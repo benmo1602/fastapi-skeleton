@@ -16,7 +16,7 @@ from pydantic import ValidationError
 from traceback import format_exc
 from typing import Any
 
-from app.common.logger import TraceID, logger
+from app.support.logger import TraceID, logger
 
 # 返回给前端的code会加上该值
 SYSTEM_CODE_BASE = 10000
