@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM dockerhub.m.com/python3.10
 
 # 解决时区问题
 ENV TZ "Asia/Shanghai"
